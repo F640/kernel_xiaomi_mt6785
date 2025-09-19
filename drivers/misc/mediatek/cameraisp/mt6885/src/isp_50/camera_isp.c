@@ -973,10 +973,10 @@ void CAMSYS_MET_Events_Trace(
 		rrz_vert_step =
 		  (int)(ISP_RD32(CAM_REG_RRZ_VERT_STEP(reg_module)) & 0x3FFFF);
 
-		trace_ISP__Pass1_CAM_enter(cam, imgo_en, rrzo_en, imgo_bpp,
-		rrzo_bpp, imgo_xsize, imgo_ysize, rrzo_xsize, rrzo_ysize,
-		rrz_src_w, rrz_src_h, rrz_dst_w, rrz_dst_h, rrz_hori_step,
-		rrz_vert_step, ctl_en, ctl_dma_en, ctl_en2);
+		trace_ISP__Pass1_CAM_enter(
+			cam, imgo_en, rrzo_en, imgo_bpp, rrzo_bpp, imgo_xsize,
+			imgo_ysize, rrzo_xsize, rrzo_ysize, rrz_src_w,
+			rrz_src_h, rrz_dst_w);
 	} else {
 		trace_ISP__Pass1_CAM_leave(cam, 0);
 	}

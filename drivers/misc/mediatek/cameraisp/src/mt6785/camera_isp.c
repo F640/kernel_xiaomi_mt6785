@@ -1039,9 +1039,7 @@ void CAMSYS_MET_Events_Trace(bool enter,
 			imgo_xsize, imgo_ysize,
 			rrzo_xsize, rrzo_ysize,
 			rrz_src_w, rrz_src_h,
-			rrz_dst_w, rrz_dst_h,
-			rrz_hori_step, rrz_vert_step,
-			ctl_en, ctl_dma_en, ctl_en2);
+			rrz_dst_w);
 	} else {
 		trace_ISP__Pass1_CAM_leave(cam, 0);
 	}

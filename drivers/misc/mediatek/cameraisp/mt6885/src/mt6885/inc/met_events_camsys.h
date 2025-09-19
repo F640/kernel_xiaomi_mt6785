@@ -26,17 +26,11 @@
 #include <linux/tracepoint.h>
 
 TRACE_EVENT(ISP__Pass1_CAM_enter,
-	TP_PROTO(unsigned int hw_module, int imgo_en, int rrzo_en,
-			 int imgo_bpp, int rrzo_bpp,
-			 int imgo_w_in_byte, int imgo_h_in_byte,
-			 int rrzo_w_in_byte, int rrzo_h_in_byte,
-			 int rrz_src_w, int rrz_src_h, int rrz_dst_w,
-			 int rrz_dst_h, int rrz_hori_step, int rrz_vert_step,
-			 u32 ctl_en, u32 ctl_dma_en, u32 ctl_en2),
-	TP_ARGS(hw_module, imgo_en, rrzo_en, imgo_bpp, rrzo_bpp, imgo_w_in_byte,
-		    imgo_h_in_byte, rrzo_w_in_byte, rrzo_h_in_byte, rrz_src_w,
-		    rrz_src_h, rrz_dst_w, rrz_dst_h, rrz_hori_step,
-			rrz_vert_step, ctl_en, ctl_dma_en, ctl_en2),
+	TP_PROTO(unsigned int hw_module, int imgo_en, int rrzo_en, int imgo_bpp, int rrzo_bpp,
+		int imgo_w_in_byte, int imgo_h_in_byte, int rrzo_w_in_byte, int rrzo_h_in_byte,
+		int rrz_src_w, int rrz_src_h, int rrz_dst_w),
+	TP_ARGS(hw_module, imgo_en, rrzo_en, imgo_bpp, rrzo_bpp, imgo_w_in_byte, imgo_h_in_byte,
+		rrzo_w_in_byte, rrzo_h_in_byte, rrz_src_w, rrz_src_h, rrz_dst_w),
 	TP_STRUCT__entry(
 		__field(unsigned int, hw_module)
 		__field(int, imgo_en)
@@ -50,12 +44,7 @@ TRACE_EVENT(ISP__Pass1_CAM_enter,
 		__field(int, rrz_src_w)
 		__field(int, rrz_src_h)
 		__field(int, rrz_dst_w)
-		__field(int, rrz_dst_h)
-		__field(int, rrz_hori_step)
-		__field(int, rrz_vert_step)
-		__field(u32, ctl_en)
-		__field(u32, ctl_dma_en)
-		__field(u32, ctl_en2)
+		__field(int, rrz_dst_w)
 	),
 	TP_fast_assign(
 		__entry->hw_module = hw_module;
@@ -70,12 +59,7 @@ TRACE_EVENT(ISP__Pass1_CAM_enter,
 		__entry->rrz_src_w = rrz_src_w;
 		__entry->rrz_src_h = rrz_src_h;
 		__entry->rrz_dst_w = rrz_dst_w;
-		__entry->rrz_dst_h = rrz_dst_h;
-		__entry->rrz_hori_step = rrz_hori_step;
-		__entry->rrz_vert_step = rrz_vert_step;
-		__entry->ctl_en = ctl_en;
-		__entry->ctl_dma_en = ctl_dma_en;
-		__entry->ctl_en2 = ctl_en2;
+		__entry->rrz_dst_w = rrz_dst_w;
 	),
 	TP_printk(
 		"_id=%d, imgo_en=%d, rrzo_en=%d\n",
